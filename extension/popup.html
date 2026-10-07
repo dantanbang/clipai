@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>ClipAI</title>
+    <style>
+      body { width: 330px; padding: 12px; font-family: system-ui, sans-serif; }
+      h1 { font-size: 16px; margin: 0 0 8px; }
+      #status { font-weight: 600; margin-bottom: 8px; }
+      #info { font-size: 12px; color: #555; min-height: 16px; margin-bottom: 4px; }
+      #error { color: #b00020; font-size: 12px; min-height: 16px; margin-bottom: 8px; }
+      .device { margin: 8px 0; font-size: 13px; }
+      .device .st { font-size: 12px; color: #555; margin-left: 22px; }
+      .device .help { font-size: 12px; color: #b00020; margin: 4px 0 0 22px; }
+      .device button { margin-left: 22px; }
+      button { margin: 2px 4px 2px 0; padding: 6px 10px; cursor: pointer; }
+      button:disabled { cursor: not-allowed; }
+    </style>
+  </head>
+  <body>
+    <h1>ClipAI</h1>
+    <div>Status: <span id="status">...</span></div>
+    <div id="info"></div>
+    <div id="error"></div>
+
+    <div class="device">
+      <label><input type="checkbox" id="chk-mic" /> Microphone</label>
+      <div class="st" id="mic-status"></div>
+      <button id="btn-grant-mic" hidden>Grant microphone access</button>
+      <div class="help" id="mic-help"></div>
+    </div>
+
+    <div class="device">
+      <label><input type="checkbox" id="chk-camera" /> Camera</label>
+      <div class="st" id="camera-status"></div>
+      <button id="btn-grant-camera" hidden>Grant camera access</button>
+      <div class="help" id="camera-help"></div>
+    </div>
+
+    <button id="btn-start">Start Recording</button>
+    <button id="btn-pause">Pause</button>
+    <button id="btn-resume">Resume</button>
+    <button id="btn-stop">Stop</button>
+    <button id="btn-preview">Open Preview</button>
+    <button id="btn-reset">Reset</button>
+
+    <script src="popup.js"></script>
+  </body>
+</html>

@@ -1,0 +1,16 @@
+{
+  "name": "clipai-ai",
+  "version": "0.2.0",
+  "private": true,
+  "type": "module",
+  "description": "ClipAI: transcript -> evidence-checked bug report (Claude API)",
+  "scripts": {
+    "check": "node check-setup.js",
+    "test": "node test-verify.js",
+    "samples": "node run.js",
+    "bugreport": "node bugreport-cli.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

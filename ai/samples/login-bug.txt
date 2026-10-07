@@ -1,0 +1,7 @@
+[00:00] Hi, I'm going to show a bug on the login page.
+[00:05] I open the login page on the staging site.
+[00:09] I type my email and my password, and the password is definitely correct.
+[00:15] Now I click the Login button.
+[00:18] And nothing happens. There's no error message and no loading spinner.
+[00:24] It should log me in and take me to the dashboard.
+[00:30] I tried it twice and got the same result.

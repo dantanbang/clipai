@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>ClipAI: Device Access</title>
+    <style>
+      body { font-family: system-ui, sans-serif; max-width: 520px; margin: 60px auto; padding: 0 16px; }
+      h1 { font-size: 20px; }
+      #msg { margin: 16px 0; font-size: 14px; line-height: 1.5; }
+      #msg.error { color: #b00020; }
+      #msg.ok { color: #1b7f3b; }
+      button { padding: 8px 14px; font-size: 14px; cursor: pointer; }
+    </style>
+  </head>
+  <body>
+    <h1 id="title">ClipAI needs device access</h1>
+    <p id="intro">Chrome will ask for permission. Choose <b>Allow</b>.</p>
+    <div id="msg"></div>
+    <button id="btn-retry">Allow access</button>
+
+    <script src="permission.js"></script>
+  </body>
+</html>

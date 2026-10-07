@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>ClipAI Preview</title>
+    <style>
+      body { font-family: system-ui, sans-serif; max-width: 960px; margin: 24px auto; padding: 0 16px; }
+      h1 { font-size: 20px; }
+      #message { margin: 12px 0; font-size: 14px; }
+      #message.error { color: #b00020; }
+      .stage { position: relative; }
+      #player { width: 100%; background: #000; border-radius: 6px; display: block; }
+
+      /* Camera box, drawn over the screen video at PLAYBACK time (not burned in).
+         Change --cam-ratio to "1 / 1" if you want an exactly square box. */
+      :root { --cam-ratio: 4 / 3; }
+      #cam {
+        position: absolute; right: 16px; bottom: 64px;
+        width: 22%; aspect-ratio: var(--cam-ratio); object-fit: cover;
+        border: 3px solid #fff; border-radius: 4px;
+        box-shadow: 0 2px 8px rgba(0,0,0,.4); background: #222;
+        pointer-events: none;
+      }
+
+      #meta { font-size: 13px; color: #555; margin: 8px 0; }
+      .row { font-size: 13px; margin: 8px 0; }
+      #sync-row label { display: block; margin-bottom: 4px; }
+      #sync-range { width: 320px; vertical-align: middle; }
+      #sync-hint { color: #555; font-size: 12px; margin-top: 2px; }
+      .btn {
+        display: inline-block; padding: 8px 14px; background: #1a73e8; color: #fff;
+        text-decoration: none; border-radius: 4px; font-size: 14px; margin-right: 8px;
+      }
+      .btn.secondary { background: #5f6368; }
+      button.small { padding: 3px 8px; margin-left: 8px; cursor: pointer; }
+    </style>
+  </head>
+  <body>
+    <h1>ClipAI Recording</h1>
+    <div id="message">Loading recording...</div>
+
+    <div class="stage" id="stage" hidden>
+      <video id="player" controls playsinline></video>
+      <video id="cam" muted playsinline hidden></video>
+    </div>
+
+    <div id="meta"></div>
+
+    <div class="row" id="overlay-row" hidden>
+      <label><input type="checkbox" id="chk-overlay" checked /> Show camera overlay</label>
+    </div>
+
+    <div class="row" id="sync-row" hidden>
+      <label>
+        Camera timing: <b id="sync-val">0 ms</b>
+        <button class="small" id="btn-sync-reset">Reset</button>
+      </label>
+      <input type="range" id="sync-range" min="-500" max="500" step="10" value="0" />
+      <div id="sync-hint">
+        If the lips move <b>after</b> you hear the voice, drag left. If they move <b>before</b> it, drag right.
+      </div>
+    </div>
+
+    <a id="download-screen" class="btn" hidden>Download Recording</a>
+    <a id="download-cam" class="btn secondary" hidden>Download Camera File</a>
+
+    <script src="preview.js"></script>
+  </body>
+</html>
